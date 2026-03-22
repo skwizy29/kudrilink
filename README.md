@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>🎵 KudriLink | Музыкальный сервис</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -37,16 +36,9 @@
             overflow-x: hidden;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-input);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 10px;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-input); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
         /* Login Screen */
         .login-screen {
@@ -86,6 +78,15 @@
             margin-bottom: 25px;
         }
 
+        .invite-info {
+            background: rgba(0,0,0,0.3);
+            border-radius: 30px;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #ffd700;
+        }
+
         .login-card input {
             width: 100%;
             padding: 16px 20px;
@@ -118,39 +119,19 @@
             transition: transform 0.2s;
         }
 
-        .login-card button:active {
-            transform: scale(0.98);
-        }
+        .login-card button:active { transform: scale(0.98); }
 
-        .code-input-group {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin: 20px 0;
-        }
+        .hidden { display: none; }
 
-        .code-input-group input {
-            width: 55px;
-            height: 55px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            padding: 0;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-Kudrick234, [23.03.2026 01:11]
-/* Main App */
+        /* Main App */
         .app {
             display: none;
             min-height: 100vh;
             padding-bottom: 100px;
         }
 
-        /* Header */
+Kudrick234, [23.03.2026 01:23]
+/* Header */
         .header {
             background: rgba(15, 15, 23, 0.95);
             backdrop-filter: blur(10px);
@@ -169,7 +150,7 @@ Kudrick234, [23.03.2026 01:11]
         .logo {
             font-size: 28px;
             font-weight: 800;
-            background: linear-gradient(135deg, #e83e8c, #3a86ff);
+            background: var(--gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -193,27 +174,9 @@ Kudrick234, [23.03.2026 01:11]
             font-size: 22px;
         }
 
-        .user-nick {
-            font-weight: 600;
-        }
-
-        .creator-badge {
-            background: var(--accent);
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 20px;
-            margin-left: 8px;
-        }
-
-        .logout-btn {
-            background: rgba(255, 68, 68, 0.8);
-            border: none;
-            padding: 8px 20px;
-            border-radius: 30px;
-            color: white;
-            cursor: pointer;
-            font-weight: 500;
-        }
+        .user-nick { font-weight: 600; }
+        .creator-badge { background: var(--accent); font-size: 10px; padding: 2px 8px; border-radius: 20px; margin-left: 8px; }
+        .logout-btn { background: rgba(255,68,68,0.8); border: none; padding: 8px 20px; border-radius: 30px; color: white; cursor: pointer; }
 
         /* Tabs */
         .tabs {
@@ -233,15 +196,10 @@ Kudrick234, [23.03.2026 01:11]
             color: white;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.2s;
             white-space: nowrap;
         }
+        .tab-btn.active { background: var(--gradient); }
 
-        .tab-btn.active {
-            background: var(--gradient);
-        }
-
-        /* Sections */
         .upload-section, .playlist-section, .tracks-section, .favorites-section, .artists-section {
             margin: 20px 25px;
         }
@@ -280,24 +238,17 @@ Kudrick234, [23.03.2026 01:11]
             padding: 50px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
             background: var(--bg-card);
         }
+        .upload-area:hover { background: var(--bg-input); }
 
-        .upload-area:hover {
-            background: var(--bg-input);
-            border-color: var(--accent-blue);
-        }
-
-        /* Grids */
         .playlists-grid, .artists-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
-Kudrick234, [23.03.2026 01:11]
-.playlist-card, .artist-card {
+        .playlist-card, .artist-card {
             background: var(--bg-card);
             border-radius: 24px;
             padding: 20px;
@@ -305,15 +256,12 @@ Kudrick234, [23.03.2026 01:11]
             transition: all 0.3s;
             border: 1px solid var(--border);
         }
-
-        .playlist-card:hover, .artist-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(232, 62, 140, 0.2);
-        }
+        .playlist-card:hover, .artist-card:hover { transform: translateY(-5px); border-color: var(--accent); }
 
         .playlist-cover, .artist-cover {
-            width: 100%;
+
+Kudrick234, [23.03.2026 01:23]
+width: 100%;
             height: 150px;
             background: var(--gradient);
             border-radius: 20px;
@@ -324,16 +272,8 @@ Kudrick234, [23.03.2026 01:11]
             margin-bottom: 15px;
         }
 
-        .playlist-title, .artist-name {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .playlist-count, .artist-tracks {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
+        .playlist-title, .artist-name { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+        .playlist-count, .artist-tracks { font-size: 12px; color: var(--text-secondary); }
 
         /* Track Items */
         .track-item {
@@ -347,33 +287,14 @@ Kudrick234, [23.03.2026 01:11]
             flex-wrap: wrap;
             gap: 12px;
             border: 1px solid var(--border);
-            transition: all 0.2s;
         }
+        .track-item:hover { border-color: var(--accent); }
 
-        .track-item:hover {
-            border-color: var(--accent);
-        }
+        .track-info { flex: 1; }
+        .track-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+        .track-artist { font-size: 12px; color: var(--text-secondary); }
 
-        .track-info {
-            flex: 1;
-        }
-
-        .track-name {
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .track-artist {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .track-actions {
-            display: flex;
-            gap: 10px;
-        }
-
+        .track-actions { display: flex; gap: 10px; }
         .play-track-btn, .fav-track-btn, .delete-track-btn {
             background: var(--bg-input);
             border: none;
@@ -381,21 +302,10 @@ Kudrick234, [23.03.2026 01:11]
             border-radius: 30px;
             color: white;
             cursor: pointer;
-            font-size: 14px;
-            transition: all 0.2s;
         }
-
-        .play-track-btn {
-            background: var(--accent);
-        }
-
-        .fav-track-btn.active {
-            background: var(--accent);
-        }
-
-        .delete-track-btn {
-            background: #ff4444;
-        }
+        .play-track-btn { background: var(--accent); }
+        .fav-track-btn.active { background: var(--accent); }
+        .delete-track-btn { background: #ff4444; }
 
         /* Music Player */
         .music-player {
@@ -403,7 +313,7 @@ Kudrick234, [23.03.2026 01:11]
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(15, 15, 23, 0.98);
+            background: rgba(15,15,23,0.98);
             backdrop-filter: blur(10px);
             border-top: 1px solid var(--accent);
             padding: 15px 25px;
@@ -414,27 +324,11 @@ Kudrick234, [23.03.2026 01:11]
             z-index: 100;
         }
 
-        .player-info {
-            flex: 1;
-            min-width: 180px;
-        }
+        .player-info { flex: 1; min-width: 180px; }
+        .player-title { font-weight: 700; font-size: 16px; }
+        .player-artist { font-size: 12px; color: var(--text-secondary); }
 
-        .player-title {
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .player-artist {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .player-controls {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
+        .player-controls { display: flex; gap: 15px; }
         .player-btn {
             background: var(--bg-input);
             border: none;
@@ -444,60 +338,19 @@ Kudrick234, [23.03.2026 01:11]
             font-size: 20px;
             cursor: pointer;
             color: white;
-            transition: all 0.2s;
         }
 
-        .player-btn:hover {
-            background: var(--accent);
-        }
-
-        .player-progress {
-            flex: 2;
-            min-width: 200px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 5px;
-            background: var(--bg-input);
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-Kudrick234, [23.03.2026 01:11]
-.progress-fill {
-            width: 0%;
-            height: 100%;
-            background: var(--accent);
-            border-radius: 3px;
-        }
-
-        .time-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            margin-top: 6px;
-            color: var(--text-secondary);
-        }
+        .player-progress { flex: 2; min-width: 200px; }
+        .progress-bar { width: 100%; height: 5px; background: var(--bg-input); border-radius: 3px; cursor: pointer; }
+        .progress-fill { width: 0%; height: 100%; background: var(--accent); border-radius: 3px; }
+        .time-info { display: flex; justify-content: space-between; font-size: 11px; margin-top: 6px; color: var(--text-secondary); }
 
         @media (max-width: 600px) {
-            .music-player {
-                flex-direction: column;
-                text-align: center;
-            }
-            .player-progress {
-                width: 100%;
-            }
-            .playlists-grid, .artists-grid {
-                grid-template-columns: 1fr;
-            }
-            .tabs {
-                padding: 15px;
-            }
-            .tab-btn {
-                padding: 8px 20px;
-                font-size: 14px;
-            }
+            .music-player { flex-direction: column; text-align: center; }
+            .player-progress { width: 100%; }
+            .playlists-grid, .artists-grid { grid-template-columns: 1fr; }
+            .tabs { padding: 15px; }
+            .tab-btn { padding: 8px 20px; font-size: 14px; }
         }
     </style>
 </head>
@@ -506,26 +359,23 @@ Kudrick234, [23.03.2026 01:11]
     <div class="login-screen" id="loginScreen">
         <div class="login-card">
             <h2>🎵 KudriLink</h2>
-            <div id="emailStep">
-                <input type="email" id="emailInput" placeholder="Ваш email" autocomplete="off" value="denis2011denis2901@gmail.com">
+            <div class="invite-info">
+                🔑 Введите инвайт-код для регистрации<br>
+                <span style="color:#e83e8c;">KUDRIK2025</span> — код создателя<br>
+                <span style="color:#3a86ff;">KUDRIK2026</span> — обычный код
+            </div>
+            <div id="inviteStep">
+
+Kudrick234, [23.03.2026 01:23]
+<input type="text" id="inviteCodeInput" placeholder="Инвайт-код" autocomplete="off">
+                <button id="checkInviteBtn">🔑 Войти по коду</button>
+            </div>
+            <div id="regStep" class="hidden">
+                <input type="email" id="emailInput" placeholder="Ваш email" autocomplete="off">
                 <input type="text" id="nickInput" placeholder="Ваш ник (уникальный)" autocomplete="off">
-                <button id="sendCodeBtn">📧 Отправить код</button>
-            </div>
-            <div id="codeStep" class="hidden">
-                <div class="code-input-group">
-                    <input type="text" id="code1" maxlength="1" autofocus>
-                    <input type="text" id="code2" maxlength="1">
-                    <input type="text" id="code3" maxlength="1">
-                    <input type="text" id="code4" maxlength="1">
-                    <input type="text" id="code5" maxlength="1">
-                    <input type="text" id="code6" maxlength="1">
-                </div>
-                <button id="verifyCodeBtn">✅ Подтвердить</button>
-                <button id="backToEmailBtn" style="background:#333;">← Назад</button>
-            </div>
-            <div id="nameStep" class="hidden">
                 <input type="text" id="userNameInput" placeholder="Ваше имя">
-                <button id="completeRegBtn">🚀 Начать</button>
+                <button id="registerBtn">🚀 Зарегистрироваться</button>
+                <button id="backToInviteBtn" style="background:#333;">← Назад</button>
             </div>
         </div>
     </div>
@@ -537,7 +387,7 @@ Kudrick234, [23.03.2026 01:11]
             <div class="user-info">
                 <div class="user-avatar" id="userAvatar">🎧</div>
                 <div>
-                    <span class="user-nick" id="displayNick">kudrilink</span>
+                    <span class="user-nick" id="displayNick"></span>
                     <span id="creatorBadge" style="display:none;" class="creator-badge">👑 Создатель</span>
                 </div>
                 <button class="logout-btn" id="logoutBtn">Выйти</button>
@@ -559,9 +409,7 @@ Kudrick234, [23.03.2026 01:11]
                 <div style="margin: 20px 0; font-size: 18px;">Нажми или перетащи файл</div>
                 <div style="font-size: 13px; color: var(--text-secondary);">MP3, WAV, OGG до 20MB</div>
                 <input type="file" id="musicFileInput" accept="audio/*" style="display: none;">
-
-Kudrick234, [23.03.2026 01:11]
-</div>
+            </div>
             <div style="margin-top: 20px;">
                 <input type="text" id="trackArtist" placeholder="Исполнитель" style="width: 100%; padding: 14px; background: var(--bg-input); border: none; border-radius: 40px; color: white; margin-bottom: 12px;">
                 <button id="uploadBtn" style="width: 100%; padding: 14px; background: var(--gradient); border: none; border-radius: 40px; color: white; font-weight: bold;">Загрузить трек</button>
@@ -595,7 +443,8 @@ Kudrick234, [23.03.2026 01:11]
             <div id="favoritesList"></div>
         </div>
 
-        <!-- Artists Section -->
+Kudrick234, [23.03.2026 01:23]
+<!-- Artists Section -->
         <div class="artists-section" id="artistsTab" style="display: none;">
             <div class="section-header">
                 <h2>⭐ Популярные исполнители</h2>
@@ -627,11 +476,11 @@ Kudrick234, [23.03.2026 01:11]
     </div>
 
     <script>
-        // ============= ИНИЦИАЛИЗАЦИЯ EMAILJS =============
-        (function() {
-            emailjs.init("09zlr8jvHCbKRaXh1");
-            console.log("✅ EmailJS инициализирован");
-        })();
+        // ============= ДОПУСТИМЫЕ ИНВАЙТ-КОДЫ =============
+        const VALID_INVITES = {
+            "KUDRIK2025": { role: "creator", name: "Создатель" },
+            "KUDRIK2026": { role: "user", name: "Пользователь" }
+        };
 
         // ============= СИСТЕМА АККАУНТОВ =============
         let currentUser = null;
@@ -642,27 +491,11 @@ Kudrick234, [23.03.2026 01:11]
         let currentTrackIndex = 0;
         let audio = new Audio();
         let isPlaying = false;
-
-        // Аккаунт создателя
-        const CREATOR_EMAIL = "denis2011denis2901@gmail.com";
-        const CREATOR_NICK = "kudrilink";
+        let currentInviteRole = null;
 
         // Проверка уникальности ника
         function isNickUnique(nick, excludeEmail = null) {
             return !allUsers.some(u => u.nick === nick && u.email !== excludeEmail);
-        }
-
-        // Генерация кода
-        function generateCode() {
-            return Math.floor(100000 + Math.random() * 900000).toString();
-        }
-
-Kudrick234, [23.03.2026 01:11]
-// Отправка кода
-        async function sendRealCodeToEmail(email, code) {
-            alert(📧 Код подтверждения: ${code}\n\nОтправлен на ${email});
-            console.log(Код для ${email}: ${code});
-            return true;
         }
 
         // ============= ГЕНЕРАЦИЯ 200+ ТРЕКОВ =============
@@ -697,7 +530,9 @@ Kudrick234, [23.03.2026 01:11]
         }
 
         // Загрузка данных пользователя
-        function loadUserData() {
+
+Kudrick234, [23.03.2026 01:23]
+function loadUserData() {
             if (!currentUser) return;
             
             const userData = JSON.parse(localStorage.getItem(kudrilink_user_${currentUser.email}) || '{"playlists":[],"favorites":[]}');
@@ -750,8 +585,83 @@ Kudrick234, [23.03.2026 01:11]
             }).join('');
         }
 
-Kudrick234, [23.03.2026 01:11]
-window.playTrack = (index) => {
+        function renderTracks(tracks = allTracks) {
+            const container = document.getElementById('tracksList');
+            if (!container) return;
+            container.innerHTML = tracks.map((track, idx) => 
+                <div class="track-item">
+                    <div class="track-info">
+                        <div class="track-name">${escapeHtml(track.name)}</div>
+                        <div class="track-artist">${escapeHtml(track.artist)}</div>
+                        <div class="track-duration">${track.duration}</div>
+                        <div style="font-size:10px; color:var(--text-secondary); margin-top:4px;">📌 Добавил: ${track.addedByNick || 'Система'}</div>
+                    </div>
+                    <div class="track-actions">
+                        <button class="play-track-btn" onclick="playTrack(${allTracks.indexOf(track)})">▶️</button>
+                        <button class="fav-track-btn ${favorites.includes(track.id) ? 'active' : ''}" onclick="toggleFavorite(${track.id})">❤️</button>
+                        ${currentUser && (currentUser.role === "creator" || track.addedBy === currentUser.email) ? <button class="delete-track-btn" onclick="deleteTrack(${track.id})">🗑️</button> : ''}
+                    </div>
+                </div>
+            ).join('');
+        }
+
+        function renderFavorites() {
+            const container = document.getElementById('favoritesList');
+            if (!container) return;
+            const favTracks = allTracks.filter(t => favorites.includes(t.id));
+            if (favTracks.length === 0) {
+                container.innerHTML = '<div style="text-align:center; padding:40px; color:var(--text-secondary);">❤️ Нет избранных треков</div>';
+
+Kudrick234, [23.03.2026 01:23]
+return;
+            }
+            container.innerHTML = favTracks.map((track, idx) => 
+                <div class="track-item">
+                    <div class="track-info">
+                        <div class="track-name">${escapeHtml(track.name)}</div>
+                        <div class="track-artist">${escapeHtml(track.artist)}</div>
+                        <div class="track-duration">${track.duration}</div>
+                    </div>
+                    <div class="track-actions">
+                        <button class="play-track-btn" onclick="playTrack(${allTracks.indexOf(track)})">▶️</button>
+                        <button class="fav-track-btn active" onclick="toggleFavorite(${track.id})">❤️</button>
+                    </div>
+                </div>
+            ).join('');
+        }
+
+        function renderArtists() {
+            const container = document.getElementById('artistsGrid');
+            if (!container) return;
+            const artistStats = {};
+            allTracks.forEach(t => {
+                artistStats[t.artist] = (artistStats[t.artist] || 0) + 1;
+            });
+            const topArtists = Object.entries(artistStats).sort((a, b) => b[1] - a[1]).slice(0, 18);
+            container.innerHTML = topArtists.map(([artist, count]) => 
+                <div class="artist-card" onclick="filterByArtist('${escapeHtml(artist)}')">
+                    <div class="artist-cover">🎤</div>
+                    <div class="artist-name">${escapeHtml(artist)}</div>
+                    <div class="artist-tracks">${count} треков</div>
+                </div>
+            ).join('');
+        }
+
+        window.filterByArtist = (artist) => {
+            const filtered = allTracks.filter(t => t.artist === artist);
+            renderTracks(filtered);
+            document.querySelector('.tab-btn[data-tab="tracks"]').click();
+        };
+
+        window.openPlaylist = (playlistId) => {
+            const playlist = playlists.find(p => p.id === playlistId);
+            if (!playlist) return;
+            const tracksInPlaylist = allTracks.filter(t => playlist.tracks.includes(t.id));
+            renderTracks(tracksInPlaylist);
+            document.querySelector('.tab-btn[data-tab="tracks"]').click();
+        };
+
+        window.playTrack = (index) => {
             const track = allTracks[index];
             if (!track) return;
             currentTrackIndex = index;
@@ -790,7 +700,8 @@ window.playTrack = (index) => {
             renderFavorites();
         };
 
-        window.deleteTrack = (trackId) => {
+Kudrick234, [23.03.2026 01:23]
+window.deleteTrack = (trackId) => {
             if (confirm('Удалить трек?')) {
                 allTracks = allTracks.filter(t => t.id !== trackId);
                 playlists.forEach(p => {
@@ -842,19 +753,35 @@ window.playTrack = (index) => {
             return div.innerHTML;
         }
 
-        // ============= РЕГИСТРАЦИЯ =============
-        let pendingEmail = "";
-        let pendingNick = "";
-        let generatedCode = "";
+        // ============= РЕГИСТРАЦИЯ ПО ИНВАЙТ-КОДУ =============
+        document.getElementById('checkInviteBtn').onclick = () => {
+            const code = document.getElementById('inviteCodeInput').value.trim().toUpperCase();
+            
+            if (!VALID_INVITES[code]) {
+                alert('❌ Неверный инвайт-код! Доступ запрещён.');
+                return;
+            }
+            
+            currentInviteRole = VALID_INVITES[code].role;
+            document.getElementById('inviteStep').classList.add('hidden');
+            document.getElementById('regStep').classList.remove('hidden');
+        };
 
-        document.getElementById('sendCodeBtn').onclick = async () => {
+        document.getElementById('backToInviteBtn').onclick = () => {
+            document.getElementById('regStep').classList.add('hidden');
+            document.getElementById('inviteStep').classList.remove('hidden');
+            document.getElementById('emailInput').value = '';
+            document.getElementById('nickInput').value = '';
+            document.getElementById('userNameInput').value = '';
+        };
+
+        document.getElementById('registerBtn').onclick = () => {
             const email = document.getElementById('emailInput').value.trim();
             const nick = document.getElementById('nickInput').value.trim();
+            const name = document.getElementById('userNameInput').value.trim() || nick;
             
             if (!email || !email.includes('@')) {
-
-Kudrick234, [23.03.2026 01:11]
-alert('❌ Введите корректный email');
+                alert('❌ Введите корректный email');
                 return;
             }
             if (!nick) {
@@ -865,44 +792,23 @@ alert('❌ Введите корректный email');
                 alert('❌ Этот ник уже занят! Выберите другой');
                 return;
             }
-            
-            pendingEmail = email;
-            pendingNick = nick;
-            generatedCode = generateCode();
-            await sendRealCodeToEmail(email, generatedCode);
-            document.getElementById('emailStep').classList.add('hidden');
-            document.getElementById('codeStep').classList.remove('hidden');
-        };
-
-        document.getElementById('verifyCodeBtn').onclick = () => {
-            const code = ${document.getElementById('code1').value}${document.getElementById('code2').value}${document.getElementById('code3').value}${document.getElementById('code4').value}${document.getElementById('code5').value}${document.getElementById('code6').value};
-            if (code === generatedCode) {
-                document.getElementById('codeStep').classList.add('hidden');
-                document.getElementById('nameStep').classList.remove('hidden');
-            } else {
-                alert('❌ Неверный код');
+            if (!currentInviteRole) {
+                alert('❌ Ошибка: нет инвайт-кода');
+                return;
             }
-        };
-
-        document.getElementById('backToEmailBtn').onclick = () => {
-            document.getElementById('codeStep').classList.add('hidden');
-            document.getElementById('emailStep').classList.remove('hidden');
-            ['code1','code2','code3','code4','code5','code6'].forEach(id => document.getElementById(id).value = '');
-        };
-
-        document.getElementById('completeRegBtn').onclick = () => {
-            const name = document.getElementById('userNameInput').value.trim() || pendingNick;
             
             currentUser = { 
-                email: pendingEmail, 
-                nick: pendingNick,
+                email: email, 
+                nick: nick,
                 name: name,
                 avatar: '🎧',
-                isCreator: pendingEmail === CREATOR_EMAIL
+                role: currentInviteRole
             };
             
-            allUsers.push({ email: pendingEmail, nick: pendingNick, name: name });
-            localStorage.setItem('kudrilink_users', JSON.stringify(allUsers));
+            allUsers.push({ email: email, nick: nick, name: name, role: currentInviteRole });
+
+Kudrick234, [23.03.2026 01:23]
+localStorage.setItem('kudrilink_users', JSON.stringify(allUsers));
             localStorage.setItem('kudrilink_current_user', JSON.stringify(currentUser));
             
             document.getElementById('loginScreen').style.display = 'none';
@@ -910,7 +816,7 @@ alert('❌ Введите корректный email');
             document.getElementById('displayNick').innerText = currentUser.nick;
             document.getElementById('userAvatar').innerText = currentUser.avatar;
             
-            if (currentUser.isCreator) {
+            if (currentUser.role === 'creator') {
                 document.getElementById('creatorBadge').style.display = 'inline';
             }
             
@@ -937,9 +843,7 @@ alert('❌ Введите корректный email');
             const artist = document.getElementById('trackArtist').value.trim() || 'Неизвестен';
             const reader = new FileReader();
             reader.onload = (e) => {
-
-Kudrick234, [23.03.2026 01:11]
-const url = e.target.result;
+                const url = e.target.result;
                 addTrack(pendingFile.name.replace('.mp3', '').replace('.wav', ''), artist, url, '3:00');
                 document.getElementById('uploadArea').innerHTML = <div style="font-size: 56px;">🎵</div><div style="margin: 20px 0;">Нажми или перетащи файл</div><div style="font-size: 13px;">MP3, WAV, OGG до 20MB</div>;
                 document.getElementById('trackArtist').value = '';
@@ -993,7 +897,8 @@ const url = e.target.result;
             audio.currentTime = percent * audio.duration;
         };
 
-        // ============= ТАБЫ =============
+Kudrick234, [23.03.2026 01:23]
+// ============= ТАБЫ =============
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.onclick = () => {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1022,12 +927,10 @@ const url = e.target.result;
             currentUser = JSON.parse(savedUser);
             document.getElementById('loginScreen').style.display = 'none';
             document.getElementById('app').style.display = 'block';
-
-Kudrick234, [23.03.2026 01:11]
-document.getElementById('displayNick').innerText = currentUser.nick;
+            document.getElementById('displayNick').innerText = currentUser.nick;
             document.getElementById('userAvatar').innerText = currentUser.avatar || '🎧';
             
-            if (currentUser.email === CREATOR_EMAIL) {
+            if (currentUser.role === 'creator') {
                 document.getElementById('creatorBadge').style.display = 'inline';
             }
             
